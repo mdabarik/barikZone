@@ -1,14 +1,21 @@
-import { useLoaderData, useNavigation } from "react-router-dom";
+import { useLoaderData, useNavigation, useParams } from "react-router-dom";
 import { Grid } from 'react-loader-spinner';
 import Problem from "../Problem/Problem";
 import { useEffect, useState } from "react";
 
 const Problems = () => {
 
-    const problems = useLoaderData();
     const navigation = useNavigation();
+    const [problems, setProblems] = useState([]);
 
-    // const [problems, setProblems] = useState([]);
+    useEffect(() => {
+        fetch('problems.json')
+        .then(res => res.json())
+        .then(data => setProblems(data))
+    }, [])
+
+    const params = useParams();
+    console.log(params);
 
     return (
         <div className="mx-auto mt-10">
