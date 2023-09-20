@@ -1,0 +1,10 @@
+.practice-active, .practice-active span, .practice-active div {
+    color: peru;
+    background-color: #bdcfe2;
+}
+
+.practice-inactive, .practice-inactive span, .practice-inactive div {
+    color: black;
+    background-color: #e9eef2;
+}
+
