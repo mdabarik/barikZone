@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layouts/MainLayout/MainLayout";
-import PracticeProblems from "../Components/PracticeProblems/PracticeProblems";
 import PracticeLayout from "../Layouts/PracticeLayout/PracticeLayout";
+import Problems from "../Components/Problems/Problems";
 
 const myRoute = createBrowserRouter([
     {
@@ -51,10 +51,11 @@ const myRoute = createBrowserRouter([
                 children: [
                     {
                         path: '/practice',
-                        element: <h2>Practice problems</h2>
+                        loader: () => fetch('problems.json'),
+                        element: <Problems></Problems>
                     },
                     {
-                        path: '/practice/:quiz',
+                        path: '/practice/quiz',
                         element: <h2>Quizz</h2>
                     }
                 ]
